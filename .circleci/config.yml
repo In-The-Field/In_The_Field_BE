@@ -22,9 +22,9 @@ jobs:
           command: bundle install
       - run: bundle config set --local path 'vendor/bundle'
       # - run: bundle exec rspec   
-      - run:
-          name: Database Setup
-          command: bin/rails db:{create,migrate} --trace
+      # - run:
+      #     name: Database Setup
+      #     command: bin/rails db:{create,migrate} --trace
       - run:
           name: Run Tests
           command: bundle exec rspec    
