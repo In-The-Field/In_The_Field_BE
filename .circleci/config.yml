@@ -4,7 +4,7 @@ orbs:
   ruby: circleci/ruby@2.0.1
 jobs:
   build:
-    working_directory: ~/in_the_field_be
+    working_directory: ~/In_The_Field_BE
     docker:
       - image: cimg/ruby:3.2.2
         environment:
