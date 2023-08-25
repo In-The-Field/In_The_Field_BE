@@ -45,6 +45,14 @@ jobs:
       - run:
           name: Run Tests
           command: bundle exec rspec 
+  deploy:
+      docker:
+        - image: cimg/ruby:3.2.2
+      steps:
+        - checkout
+        - run:
+            name: push
+            command: git push render main
 workflows:
   build-deploy:
     jobs:
