@@ -4,12 +4,21 @@ orbs:
   ruby: circleci/ruby@2.0.1
 jobs:
   build:
-    working_directory: ~/in_the_field_be
+    # working_directory: ~/In_The_Field_BE
     docker:
       - image: cimg/ruby:3.2.2
         environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          PGHOST: 127.0.0.1
+          PGUSER: postgres
           RAILS_ENV: test
-          RACK_ENV: test
+      - image: circleci/postgres:11
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: in_the_field_be_test
+          POSTGRES_PASSWORD: secret
     executor: ruby/default   
     steps:
       - checkout
@@ -17,16 +26,43 @@ jobs:
           name: in_the_field_be
           command: bundle -v
       - checkout
-      - run: bundle config set --local path 'vendor/bundle'
+      - run:
+          name: Force Bundler Version
+          command: |
+            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+            source $BASH_ENV
+            gem install bundler
+      # - run: bundle config set --local path 'vendor/bundle'
       - run:
           name: bundle install
           command: bundle install
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Database Setup
           command: bin/rails db:{create,migrate} --trace
       - run:
           name: Run Tests
-          command: bundle exec rspec    
+          command: bundle exec rspec 
+  deploy:
+      docker:
+        - image: cimg/ruby:3.2.2
+      steps:
+        - checkout
+        - run:
+            name: push
+            command: git push render main
+workflows:
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main   
       # - checkout
       # - run: 
       #     name: push to render
