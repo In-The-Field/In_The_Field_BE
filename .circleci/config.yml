@@ -13,10 +13,10 @@ jobs:
     executor: ruby/default   
     steps:
       - checkout
-      -run:
+      - run:
           name: in_the_field_be
           command: bundle -v
-      -checkout
+      - checkout
       - run: bundle install --path vendor/bundle
       - run: bundle exec rspec   
       - run:
@@ -25,12 +25,6 @@ jobs:
       - run:
           name: Run Tests
           command: bundle exec rspec    
-    deploy:
-      docker:
-        - image: cimg/ruby:3.2.2
-          environment:
-            RAILS_ENV: production
-            RACK_ENV: production
       steps:
         - checkout
         - run: 
