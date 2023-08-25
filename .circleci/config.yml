@@ -17,14 +17,13 @@ jobs:
           name: in_the_field_be
           command: bundle -v
       - checkout
+      - run: bundle config set --local path 'vendor/bundle'
       - run:
           name: bundle install
           command: bundle install
-      - run: bundle install --local path 'vendor/bundle'
-      # - run: bundle exec rspec   
-      # - run:
-      #     name: Database Setup
-      #     command: bin/rails db:{create,migrate} --trace
+      - run:
+          name: Database Setup
+          command: bin/rails db:{create,migrate} --trace
       - run:
           name: Run Tests
           command: bundle exec rspec    
