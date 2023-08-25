@@ -8,10 +8,12 @@ jobs:
     docker:
       - image: cimg/ruby:3.2.2
         environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
           PGHOST: 127.0.0.1
-          PGUSER: in_the_field_be
+          PGUSER: postgres
           RAILS_ENV: test
-          # RACK_ENV: test
       - image: circleci/postgres:11
         environment:
           POSTGRES_USER: postgres
@@ -30,7 +32,7 @@ jobs:
             echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
             gem install bundler
-      - run: bundle config set --local path 'vendor/bundle'
+      # - run: bundle config set --local path 'vendor/bundle'
       - run:
           name: bundle install
           command: bundle install
@@ -44,15 +46,15 @@ jobs:
           name: Run Tests
           command: bundle exec rspec 
 workflows:
-  # build-test-deploy:
-  jobs:
-    - build
-    - deploy:
-        requires:
-          - build
-        filters:
-          branches:
-            only: main   
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main   
       # - checkout
       # - run: 
       #     name: push to render
