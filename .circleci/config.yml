@@ -8,10 +8,10 @@ jobs:
     docker:
       - image: cimg/ruby:3.2.2
         environment:
-          PGHOST: localhost
+          PGHOST: 127.0.0.1
           PGUSER: in_the_field_be
           RAILS_ENV: test
-          RACK_ENV: test
+          # RACK_ENV: test
       - image: postgres:14.7
         environment:
           POSTGRES_USER: postgres
@@ -24,16 +24,35 @@ jobs:
           name: in_the_field_be
           command: bundle -v
       - checkout
+      - run:
+        name: Force Bundler Version
+        command: |
+          echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+          source $BASH_ENV
+          gem install bundler
       - run: bundle config set --local path 'vendor/bundle'
       - run:
           name: bundle install
           command: bundle install
       - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
           name: Database Setup
           command: bin/rails db:{create,migrate} --trace
       - run:
           name: Run Tests
-          command: bundle exec rspec    
+          command: bundle exec rspec 
+  workflows:
+  build-test-deploy:
+    jobs:
+      - build-and-test
+      - deploy:
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only: main   
       # - checkout
       # - run: 
       #     name: push to render
