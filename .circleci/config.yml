@@ -4,7 +4,7 @@ orbs:
   ruby: circleci/ruby@2.0.1
 jobs:
   build:
-    working_directory: ~/In_The_Field_BE
+    # working_directory: ~/In_The_Field_BE
     docker:
       - image: cimg/ruby:3.2.2
         environment:
@@ -12,7 +12,7 @@ jobs:
           PGUSER: in_the_field_be
           RAILS_ENV: test
           # RACK_ENV: test
-      - image: postgres:14.7
+      - image: circleci/postgres:11
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: in_the_field_be_test
@@ -44,15 +44,15 @@ jobs:
           name: Run Tests
           command: bundle exec rspec 
 workflows:
-build-test-deploy:
-  jobs:
-    - build-and-test
-    - deploy:
-        requires:
-          - build-and-test
-        filters:
-          branches:
-            only: main   
+  build-test-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main   
       # - checkout
       # - run: 
       #     name: push to render
