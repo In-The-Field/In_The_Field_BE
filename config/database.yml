@@ -51,7 +51,7 @@ default: &default
 
 development:
   <<: *default
-  database: In_The_Field_BE_development
+  database: in_the_field_be_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -85,7 +85,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: In_The_Field_BE_test
+  database: in_the_field_be_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -109,7 +109,7 @@ test:
 #
 production:
   <<: *default
-  database: In_The_Field_BE_production
-  # username: In_The_Field_BE
-  # password: <%= ENV["IN_THE_FIELD_BE_DATABASE_PASSWORD"] %>
+  database: in_the_field_be_production
+  # username: in_the_field_be
+  # password: <%= ENV["in_the_field_be_DATABASE_PASSWORD"] %>
   url: <%= ENV["DATABASE_URL"] %>
