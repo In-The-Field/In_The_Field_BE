@@ -17,9 +17,11 @@ jobs:
           name: in_the_field_be
           command: bundle -v
       - checkout
-      # - run: bundle install --path vendor/bundle
+      - run:
+          name: bundle install
+          command: bundle install
       - run: bundle config set --local path 'vendor/bundle'
-      - run: bundle exec rspec   
+      # - run: bundle exec rspec   
       - run:
           name: Database Setup
           command: bin/rails db:{create,migrate} --trace
@@ -30,10 +32,7 @@ jobs:
       - run: 
           name: push to render
           command: git push render main 
-      - checkout
-      - run: 
-          name: push to render
-          command: git push render main 
+     
      
 
      
