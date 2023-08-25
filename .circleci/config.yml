@@ -20,7 +20,7 @@ jobs:
       - run:
           name: bundle install
           command: bundle install
-      - run: bundle config set --local path 'vendor/bundle'
+      - run: bundle install --local path 'vendor/bundle'
       # - run: bundle exec rspec   
       # - run:
       #     name: Database Setup
