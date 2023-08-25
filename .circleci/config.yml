@@ -26,9 +26,9 @@ jobs:
       - run:
           name: bundle install
           command: bundle install
-      - run:
-          name: Database Setup
-          command: bin/rails db:{create,migrate} --trace
+      # - run:
+      #     name: Database Setup
+      #     command: bin/rails db:{create,migrate} --trace
       - run:
           name: Run Tests
           command: bundle exec rspec    
