@@ -25,9 +25,8 @@ jobs:
       - run:
           name: Run Tests
           command: bundle exec rspec    
-      steps:
-        - checkout
-        - run: 
-            name: push to render
-            command: git push render main 
+      - checkout
+      - run: 
+          name: push to render
+          command: git push render main 
      
