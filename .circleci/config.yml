@@ -8,6 +8,8 @@ jobs:
     docker:
       - image: cimg/ruby:3.2.2
         environment:
+          PGHOST: localhost
+          PGUSER: in_the_field_be
           RAILS_ENV: test
           RACK_ENV: test
       - image: postgres:14.7
