@@ -44,15 +44,15 @@ jobs:
           name: Run Tests
           command: bundle exec rspec 
 workflows:
-  build-test-deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: main   
+  # build-test-deploy:
+  jobs:
+    - build
+    - deploy:
+        requires:
+          - build
+        filters:
+          branches:
+            only: main   
       # - checkout
       # - run: 
       #     name: push to render
