@@ -15,7 +15,15 @@ module Types
     # end
 
     field :users, resolver: Resolvers::Users::UsersResolver
+    field :user, resolver: Resolvers::Users::UserResolver
 
+    # field :user, Types::UserType, null: true do 
+    #   argument :id, ID, required: true
+    # end
+
+    # def user(id:)
+    #   User.find_by(id: id)
+    # end
 
   end
 end
