@@ -1,0 +1,120 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://mushroom.kindwise.com/api/v1/identification?details=common_names
+    body:
+      encoding: UTF-8
+      string: '{"images":["data:image/jpeg;base64,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"],"similar_images":true}'
+    headers:
+      Api-Key:
+      - qHkL2vgTvvqxOcqgAOxGrsdNseWpvjo6YT5XkArSyquPxmjvs7
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.7.10
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx/1.16.1
+      Date:
+      - Mon, 28 Aug 2023 23:01:55 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '8431'
+      Connection:
+      - keep-alive
+      Location:
+      - https://mushroom.kindwise.com/api/v1/identification/mAhHioMgNPLgHsy
+      X-Frame-Options:
+      - DENY
+      Vary:
+      - origin
+      X-Content-Type-Options:
+      - nosniff
+      Referrer-Policy:
+      - same-origin
+      Cross-Origin-Opener-Policy:
+      - unsafe-none
+    body:
+      encoding: UTF-8
+      string: '{"access_token": "mAhHioMgNPLgHsy", "model_version": "mushroom_id:1.0.0-beta",
+        "custom_id": null, "input": {"latitude": null, "longitude": null, "similar_images":
+        true, "images": ["https://mushroom.kindwise.com/media/images/4b92d054fb3a48f8b6730f29f654ea6b.jpg"],
+        "datetime": "2023-08-28T23:01:54.983578+00:00"}, "result": {"classification":
+        {"suggestions": [{"id": "85afb46d12804535", "name": "Lepista nuda", "probability":
+        0.34782904, "similar_images": [{"id": "aeeec68131eb596376c53e17a9b77553db544144",
+        "url": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/aee/ec68131eb596376c53e17a9b77553db544144.jpg",
+        "license_name": "CC BY 4.0", "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "citation": "LJ Moore-McClelland", "similarity": 0.598, "url_small": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/aee/ec68131eb596376c53e17a9b77553db544144.small.jpg"},
+        {"id": "11282f9fb09078eed5c29f0c47a9c681315cfbeb", "url": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/112/82f9fb09078eed5c29f0c47a9c681315cfbeb.jpg",
+        "license_name": "CC BY-SA 3.0", "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "citation": "Dave W", "similarity": 0.587, "url_small": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/112/82f9fb09078eed5c29f0c47a9c681315cfbeb.small.jpg"}],
+        "details": {"common_names": ["Blewit", "Wood Blewit"], "language": "en", "entity_id":
+        "85afb46d12804535"}}, {"id": "cbdd1002a37e0da7", "name": "Cortinarius variecolor",
+        "probability": 0.24072242, "similar_images": [{"id": "e0d33640f7ff57cb267cf70f4ae793a910134595",
+        "url": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/e0d/33640f7ff57cb267cf70f4ae793a910134595.jpg",
+        "license_name": "CC BY 4.0", "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "citation": "Inger-Lise Fonneland", "similarity": 0.536, "url_small": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/e0d/33640f7ff57cb267cf70f4ae793a910134595.small.jpg"},
+        {"id": "7cda848b8b5be840204633ddad57967bb925b65d", "url": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/7cd/a848b8b5be840204633ddad57967bb925b65d.jpg",
+        "license_name": "CC BY 4.0", "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "citation": "Gunvor Bollingmo", "similarity": 0.506, "url_small": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/7cd/a848b8b5be840204633ddad57967bb925b65d.small.jpg"}],
+        "details": {"common_names": null, "language": "en", "entity_id": "cbdd1002a37e0da7"}},
+        {"id": "580e59e88c4334e4", "name": "Lepista sordida", "probability": 0.15054716,
+        "similar_images": [{"id": "45761843ec271c6c514c08cc3134ca9c92a3462b", "url":
+        "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/457/61843ec271c6c514c08cc3134ca9c92a3462b.jpg",
+        "license_name": "CC0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "citation": "Peter Warren", "similarity": 0.517, "url_small": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/457/61843ec271c6c514c08cc3134ca9c92a3462b.small.jpg"},
+        {"id": "b1fe0e2106de10fcaa7cef96e241b5735efe11d4", "url": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/b1f/e0e2106de10fcaa7cef96e241b5735efe11d4.jpg",
+        "license_name": "CC BY-SA 3.0", "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "citation": "Glen van Niekerk", "similarity": 0.514, "url_small": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/b1f/e0e2106de10fcaa7cef96e241b5735efe11d4.small.jpg"}],
+        "details": {"common_names": ["sordid blewit"], "language": "en", "entity_id":
+        "580e59e88c4334e4"}}, {"id": "c9586f55cc00fefa", "name": "Cortinarius anomalus",
+        "probability": 0.04111399, "similar_images": [{"id": "c353c27f85a9bd7888dbe63953ddb3e446ce7d61",
+        "url": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/c35/3c27f85a9bd7888dbe63953ddb3e446ce7d61.jpeg",
+        "license_name": "CC BY 4.0", "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "citation": "Nina Filippova", "similarity": 0.533, "url_small": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/c35/3c27f85a9bd7888dbe63953ddb3e446ce7d61.small.jpeg"},
+        {"id": "002b2d74cc03637da698a7a9bd460134f974b9bb", "url": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/002/b2d74cc03637da698a7a9bd460134f974b9bb.jpeg",
+        "license_name": "CC BY-SA 4.0", "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "citation": "pinonbistro", "similarity": 0.483, "url_small": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/002/b2d74cc03637da698a7a9bd460134f974b9bb.small.jpeg"}],
+        "details": {"common_names": ["variable webcap"], "language": "en", "entity_id":
+        "c9586f55cc00fefa"}}, {"id": "73f3f088fc09dac3", "name": "Homophron spadiceum",
+        "probability": 0.013251516, "similar_images": [{"id": "f88925dff4d08e6a9861838c96b7d951a20b1fd2",
+        "url": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/f88/925dff4d08e6a9861838c96b7d951a20b1fd2.jpg",
+        "license_name": "CC BY 4.0", "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "citation": "Inger-Lise Fonneland", "similarity": 0.516, "url_small": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/f88/925dff4d08e6a9861838c96b7d951a20b1fd2.small.jpg"},
+        {"id": "d7e9aba5e88a45ecbf7500962a5a7df12d33ca88", "url": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/d7e/9aba5e88a45ecbf7500962a5a7df12d33ca88.jpeg",
+        "license_name": "CC0", "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "citation": "Garrett Taylor", "similarity": 0.308, "url_small": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/d7e/9aba5e88a45ecbf7500962a5a7df12d33ca88.small.jpeg"}],
+        "details": {"common_names": ["chestnut brittlestem"], "language": "en", "entity_id":
+        "73f3f088fc09dac3"}}, {"id": "3db3cd57315bb6ac", "name": "Baeospora myriadophylla",
+        "probability": 0.013248029, "similar_images": [{"id": "1d96158f702c217bc57e5aaef824ad722d50f07d",
+        "url": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/1d9/6158f702c217bc57e5aaef824ad722d50f07d.jpg",
+        "license_name": "CC BY-SA 3.0", "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "citation": "walt sturgeon", "similarity": 0.481, "url_small": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/1d9/6158f702c217bc57e5aaef824ad722d50f07d.small.jpg"},
+        {"id": "3d0d0361b9ccadce16d9d05595b1d3728639fa33", "url": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/3d0/d0361b9ccadce16d9d05595b1d3728639fa33.jpg",
+        "license_name": "CC BY-SA 3.0", "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "citation": "Heather Waterman", "similarity": 0.464, "url_small": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/3d0/d0361b9ccadce16d9d05595b1d3728639fa33.small.jpg"}],
+        "details": {"common_names": ["Lavender Baeospora"], "language": "en", "entity_id":
+        "3db3cd57315bb6ac"}}, {"id": "ec24aff371d2ac13", "name": "Cortinarius alboviolaceus",
+        "probability": 0.010526592, "similar_images": [{"id": "6a8b30ee96ec548b01a79bef9dfe5d055a8fdfbe",
+        "url": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/6a8/b30ee96ec548b01a79bef9dfe5d055a8fdfbe.jpg",
+        "license_name": "CC BY-SA 3.0", "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "citation": "George Riner", "similarity": 0.489, "url_small": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/6a8/b30ee96ec548b01a79bef9dfe5d055a8fdfbe.small.jpg"},
+        {"id": "30714a1c1b6a5e10d17cc01caa12c5794a0c690c", "url": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/307/14a1c1b6a5e10d17cc01caa12c5794a0c690c.jpeg",
+        "license_name": "CC BY-SA 4.0", "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "citation": "pinonbistro", "similarity": 0.481, "url_small": "https://mushroom-id.ams3.cdn.digitaloceanspaces.com/similar_images/1/307/14a1c1b6a5e10d17cc01caa12c5794a0c690c.small.jpeg"}],
+        "details": {"common_names": ["Silvery-violet Cort", "pearly webcap"], "language":
+        "en", "entity_id": "ec24aff371d2ac13"}}]}}, "status": "COMPLETED", "sla_compliant_client":
+        true, "sla_compliant_system": true, "created": 1693263714.983578, "completed":
+        1693263715.372357}'
+  recorded_at: Mon, 28 Aug 2023 23:01:55 GMT
+recorded_with: VCR 6.2.0
