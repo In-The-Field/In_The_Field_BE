@@ -4,6 +4,7 @@ RSpec.describe KindwiseService do
   describe '#call' do
     it 'returns a hash of mushroom data', :vcr do
       base_64_image
+      
       mushrooms = KindwiseService.new
       mushroom_results = mushrooms.get_mushroom_data(@image)
     
