@@ -1,7 +1,8 @@
 [![Contributors](https://img.shields.io/github/contributors/In-The-Field/In_The_Field_BE.svg)](https://github.com/In-The-Field/In_The_Field_BE/graphs/contributors)
 [![Forks](https://img.shields.io/github/forks/In-The-Field/In_The_Field_BE.svg)](https://github.com/In-The-Field/In_The_Field_BE/forks)
 [![Stargazers](https://img.shields.io/github/stars/In-The-Field/In_The_Field_BE.svg)](https://githuB.com/In-The-Field/In_The_Field_BE/stargazers)
-[![Issues](https://img.shields.io/github/issues/In-The-Field/In_The_Field_BE.svg)](https://github.com/In-The-Field/In_The_Field_BEissues)
+[![Issues](https://img.shields.io/github/issues/In-The-Field/In_The_Field_BE.svg)](https://github.com/In-The-Field/In_The_Field_BE/issues)
+[![CircleCI Status](https://circleci.com/gh/facebook/react.svg?style=shield)](https://circleci.com/gh/facebook/react)
 
 # In the Field
 
@@ -187,7 +188,7 @@ Status 400 Bad Response
   end
 ```
 
-## Contributing  [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/CrowRising/PlayPal-FE/issues)
+## Contributing  [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/In-The-Field/In_The_Field_BE/issues)
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
