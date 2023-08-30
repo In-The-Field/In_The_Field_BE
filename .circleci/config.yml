@@ -45,29 +45,26 @@ jobs:
       - run:
           name: Run Tests
           command: bundle exec rspec 
-  deploy:
-      docker:
-        - image: cimg/ruby:3.2.2
-      steps:
-        - checkout
-        - run:
-            name: push
-            command: git push render main
+  # deploy:
+  #     docker:
+  #       - image: cimg/ruby:3.2.2
+  #     steps:
+  #       - checkout
+  #       - run:
+  #           name: push
+  #           command: git push "https://api.render.com/deploy/srv-cjke6q6phtvs73at93t0?key=hjfil06ePmQ"
 workflows:
   build-deploy:
     jobs:
       - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: main   
+      # - deploy:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only: main   
       # - checkout
       # - run: 
       #     name: push to render
       #     command: git push render main 
-     
-     
 
-     

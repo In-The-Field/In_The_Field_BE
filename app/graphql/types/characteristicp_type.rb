@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  class CharacteristicType < Types::BaseObject
+  class CharacteristicpType < Types::BaseObject
     field :hymenium_type, String, null: true
     field :stipe_character, String, null: true
     field :spore_print_color, String, null: true
