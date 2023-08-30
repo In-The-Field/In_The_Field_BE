@@ -16,6 +16,7 @@ module Types
 
     field :users, resolver: Resolvers::Users::UsersResolver
     field :user, resolver: Resolvers::Users::UserResolver
+    field :matches, resolver: Resolvers::Matches::MatchesResolver
 
     # field :user, Types::UserType, null: true do 
     #   argument :id, ID, required: true
