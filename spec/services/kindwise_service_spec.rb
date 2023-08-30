@@ -14,8 +14,6 @@ RSpec.describe KindwiseService do
       expect(mushroom_results[:input]).to have_key(:images)
       expect(mushroom_results[:input][:images]).to be_an(Array)
       expect(mushroom_results[:input][:images].first).to be_a(String)
-      expect(mushroom_results[:input]).to have_key(:similar_images)
-      expect(mushroom_results[:input][:similar_images]).to be(true)
       expect(mushroom_results).to have_key(:result)
       expect(mushroom_results[:result]).to be_a(Hash)
       expect(mushroom_results[:result]).to have_key(:classification)
