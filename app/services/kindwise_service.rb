@@ -9,10 +9,7 @@ class KindwiseService
 
   def get_mushroom_data(base_64_image)
     payload = {
-      images: [base_64_image],  # Wrap the image in an array
-      # latitude: 49.207,
-      # longitude: 16.608,
-      # similar_images: true
+      images: [base_64_image]
     }
 
     response = conn.post do |req|

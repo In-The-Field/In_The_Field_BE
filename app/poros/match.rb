@@ -30,7 +30,6 @@ class Match
     @taxonomy = data[:details][:taxonomy]
     @characteristic = data[:details][:characteristic]
     @look_alike = data[:details][:look_alike]
-    # require 'pry'; binding.pry
     # @look_alike = format_look_alike(data[:details][:look_alike])
   end
 
@@ -44,11 +43,9 @@ class Match
 
   def format_look_alike(look_alike_data)
     # names = look_alike_data.map do |look_alike|
-    #   require 'pry'; binding.pry
     #   look_alike[:name]  
     # end
     # look_alike_names.join(", ")
-    # require 'pry'; binding.pry
     names = look_alike_data.map { |look_alike| look_alike[:name] }
     result = names.join(', ')
   end
