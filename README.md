@@ -60,7 +60,7 @@ bundle install
 ```
 4. Create the database
 ```
-rails db:{create,migrate}
+rails db:{create,migrate,seed}
 ```
 5. Add Figaro
 ```
