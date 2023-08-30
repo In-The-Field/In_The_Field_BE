@@ -45,14 +45,14 @@ jobs:
       - run:
           name: Run Tests
           command: bundle exec rspec 
-  deploy:
-      docker:
-        - image: cimg/ruby:3.2.2
-      steps:
-        - checkout
-        - run:
-            name: push
-            command: git push render main
+  # deploy:
+  #     docker:
+  #       - image: cimg/ruby:3.2.2
+  #     steps:
+  #       - checkout
+  #       - run:
+  #           name: push
+  #           command: git push "https://in-the-field.onrender.com/"
 workflows:
   build-deploy:
     jobs:
@@ -67,7 +67,4 @@ workflows:
       # - run: 
       #     name: push to render
       #     command: git push render main 
-     
-     
 
-     
