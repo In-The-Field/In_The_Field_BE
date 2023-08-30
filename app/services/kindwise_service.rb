@@ -15,7 +15,7 @@ class KindwiseService
     response = conn.post do |req|
       req.headers['Api-Key'] = ENV['KINDWISE_API']
       req.body = payload.to_json
-      req.params['details'] = 'common_names,description,edibility,image,taxonomy,psychoactive,characteristic,look_alike,description'
+      req.params['details'] = 'common_names,description,edibility,image,taxonomy,psychoactive,characteristic,look_alike'
     end
     JSON.parse(response.body, symbolize_names: true)
   end
