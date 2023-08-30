@@ -2,12 +2,14 @@
 
 module Types
   class MatchType < Types::BaseObject
-    field :probability, Integer, null: true
+    field :probability, Float, null: true
 
     field :psychoactive, Boolean, null: true
 
     field :api_id, String, null: true
+
     field :common_name, String, null: true
+
     field :latin_name, String, null: true
     field :edibility, String, null: true
     field :photo, String, null: true
