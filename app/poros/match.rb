@@ -2,15 +2,15 @@ class Match
   attr_reader :api_id,
               :probability,
               :edibility,
-              :taxonomy,
+              :taxonomyp,
               :psychoactive,
-              :characteristic,
+              :characteristicp,
               :description,
               :common_name,
               :latin_name,
               :photo,
               :photo_citation,
-              :look_alike
+              :look_alikep
 
 
   def initialize(data)
@@ -27,9 +27,9 @@ class Match
     @photo_citation = data[:details][:image][:citation]
     @description = data[:details][:description][:value]
 
-    @taxonomy = data[:details][:taxonomy]
-    @characteristic = data[:details][:characteristic]
-    @look_alike = data[:details][:look_alike]
+    @taxonomyp = data[:details][:taxonomy]
+    @characteristicp = data[:details][:characteristic]
+    @look_alikep = data[:details][:look_alike]
     # @look_alike = format_look_alike(data[:details][:look_alike])
   end
 
