@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 module Types
-  class MatchType < Types::BaseObject
+  class MushroomType < Types::BaseObject
+    field :id, ID, null: false
+    
     field :probability, Float, null: true
 
     field :psychoactive, Boolean, null: true
@@ -16,8 +18,8 @@ module Types
     field :photo_citation, String, null: true
     field :description, String, null: true
     
-    field :taxonomyp, Types::TaxonomypType, null: true
-    field :characteristicp, Types::CharacteristicpType, null: true
-    field :look_alikep, [Types::LookAlikepType], null: true
+    # field :taxonomy, Types::TaxonomyType, null: true
+    # field :characteristic, Types::CharacteristicType, null: true
+    # field :look_alike, [Types::LookAlikeType], null: true
   end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  class TaxonomyType < Types::BaseObject
+  class TaxonomypType < Types::BaseObject
     field :genus, String, null: true
     field :order, String, null: true
     field :family, String, null: true
