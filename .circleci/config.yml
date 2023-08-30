@@ -52,7 +52,7 @@ jobs:
         - checkout
         - run:
             name: push
-            command: git push render main
+            command: git push origin main
 workflows:
   build-deploy:
     jobs:
@@ -67,7 +67,4 @@ workflows:
       # - run: 
       #     name: push to render
       #     command: git push render main 
-     
-     
 
-     
