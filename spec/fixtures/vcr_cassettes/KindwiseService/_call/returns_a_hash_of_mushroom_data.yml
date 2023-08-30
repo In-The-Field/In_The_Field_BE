@@ -25,15 +25,15 @@ http_interactions:
       Server:
       - nginx/1.16.1
       Date:
-      - Wed, 30 Aug 2023 16:00:58 GMT
+      - Wed, 30 Aug 2023 16:52:18 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '10647'
+      - '10645'
       Connection:
       - keep-alive
       Location:
-      - https://mushroom.kindwise.com/api/v1/identification/YLpaMCNJexcuX4w
+      - https://mushroom.kindwise.com/api/v1/identification/uB8ZWFwOkO431l6
       X-Frame-Options:
       - DENY
       Vary:
@@ -46,12 +46,12 @@ http_interactions:
       - unsafe-none
     body:
       encoding: UTF-8
-      string: '{"access_token": "YLpaMCNJexcuX4w", "model_version": "mushroom_id:1.0.0-beta",
+      string: '{"access_token": "uB8ZWFwOkO431l6", "model_version": "mushroom_id:1.0.0-beta",
         "custom_id": null, "input": {"latitude": null, "longitude": null, "images":
-        ["https://mushroom.kindwise.com/media/images/4d968e3f22b0492a9c55075ea0fd5a87.jpg"],
-        "datetime": "2023-08-30T16:00:57.635669+00:00"}, "result": {"classification":
+        ["https://mushroom.kindwise.com/media/images/b304823d572f44b0bc8c2a5c5ec20bfd.jpg"],
+        "datetime": "2023-08-30T16:52:18.236453+00:00"}, "result": {"classification":
         {"suggestions": [{"id": "558fbb57c985b800", "name": "Boletus edulis", "probability":
-        0.54544586, "details": {"common_names": ["Cep", "King Bolete", "Penny Bun",
+        0.5454448, "details": {"common_names": ["Cep", "King Bolete", "Penny Bun",
         "Porcini"], "taxonomy": {"genus": "Boletus", "order": "Boletales", "family":
         "Boletaceae", "phylum": "Basidiomycota", "kingdom": "Fungi"}, "edibility":
         "choice", "characteristic": {"hymenium type": "pores", "stipe character":
@@ -99,7 +99,7 @@ http_interactions:
         "citation": "//commons.wikimedia.org/wiki/User:Holleday", "license_name":
         "CC BY 3.0", "license_url": "https://creativecommons.org/licenses/by/3.0/"},
         "language": "en", "entity_id": "558fbb57c985b800"}}, {"id": "0942ae9edbe22354",
-        "name": "Boletus pinophilus", "probability": 0.24308018, "details": {"common_names":
+        "name": "Boletus pinophilus", "probability": 0.2430811, "details": {"common_names":
         ["Pine Bolete"], "taxonomy": {"genus": "Boletus", "order": "Boletales", "family":
         "Boletaceae", "phylum": "Basidiomycota", "kingdom": "Fungi"}, "edibility":
         "edible", "characteristic": {"hymenium type": "pores", "stipe character":
@@ -133,7 +133,7 @@ http_interactions:
         "citation": "//commons.wikimedia.org/wiki/User:Paffka", "license_name": "CC
         BY-SA 3.0", "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"},
         "language": "en", "entity_id": "0942ae9edbe22354"}}, {"id": "05e03d65448cc6d4",
-        "name": "Boletus reticulatus", "probability": 0.18983276, "details": {"common_names":
+        "name": "Boletus reticulatus", "probability": 0.18983279, "details": {"common_names":
         ["Summer Bolete", "summer cep"], "taxonomy": {"genus": "Boletus", "order":
         "Boletales", "family": "Boletaceae", "phylum": "Basidiomycota", "kingdom":
         "Fungi"}, "edibility": null, "characteristic": null, "look_alike": null, "psychoactive":
@@ -151,7 +151,7 @@ http_interactions:
         "citation": "//commons.wikimedia.org/wiki/User:Rude", "license_name": "CC
         BY-SA 3.0", "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"},
         "language": "en", "entity_id": "05e03d65448cc6d4"}}, {"id": "9a3dc8add32d55e3",
-        "name": "Boletus regineus", "probability": 0.010032831, "details": {"common_names":
+        "name": "Boletus regineus", "probability": 0.010032887, "details": {"common_names":
         ["Queen Bolete"], "taxonomy": {"genus": "Boletus", "order": "Boletales", "family":
         "Boletaceae", "phylum": "Basidiomycota", "kingdom": "Fungi"}, "edibility":
         "choice", "characteristic": {"hymenium type": "pores", "stipe character":
@@ -173,7 +173,7 @@ http_interactions:
         "citation": "https://commons.wikimedia.org/wiki/File:Boletus_regineus_28082.jpg",
         "license_name": "CC BY-SA 3.0", "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"},
         "language": "en", "entity_id": "9a3dc8add32d55e3"}}]}}, "status": "COMPLETED",
-        "sla_compliant_client": true, "sla_compliant_system": true, "created": 1693411257.635669,
-        "completed": 1693411258.003723}'
-  recorded_at: Wed, 30 Aug 2023 16:00:58 GMT
+        "sla_compliant_client": true, "sla_compliant_system": true, "created": 1693414338.236453,
+        "completed": 1693414338.625805}'
+  recorded_at: Wed, 30 Aug 2023 16:52:18 GMT
 recorded_with: VCR 6.2.0
