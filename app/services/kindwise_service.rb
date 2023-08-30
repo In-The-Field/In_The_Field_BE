@@ -9,24 +9,14 @@ class KindwiseService
 
   def get_mushroom_data(base_64_image)
     payload = {
-      images: [base_64_image],
-      similar_images: true
+      images: [base_64_image]
     }
 
     response = conn.post do |req|
       req.headers['Api-Key'] = ENV['KINDWISE_API']
       req.body = payload.to_json
-      req.params["details"] = [
-        'common_names',
-        'edibility',
-        'description',
-        'psychoactive',
-        'taxonomy',
-        'characteristic',
-        'look_alike'
-      ].join(',')
+      req.params['details'] = 'common_names,description,edibility,image,taxonomy,psychoactive,characteristic,look_alike,description'
     end
-
     JSON.parse(response.body, symbolize_names: true)
   end
 end
