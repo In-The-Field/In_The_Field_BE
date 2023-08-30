@@ -10,7 +10,7 @@ class Mushroom < ApplicationRecord
   validates :description, presence: true
 
   has_many :user_mushrooms
-  has_many :mushrooms, through: :user_mushrooms
+  has_many :users, through: :user_mushrooms
   has_one :characteristic, dependent: :destroy
   has_one :taxonomy, dependent: :destroy
   has_one :look_alike, dependent: :destroy

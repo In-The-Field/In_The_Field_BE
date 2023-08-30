@@ -15,7 +15,7 @@ RSpec.describe Mushroom, type: :model do
   
   describe "relationships" do
     it { should have_many :user_mushrooms }
-    it { should have_many(:mushrooms).through(:user_mushrooms) }
+    it { should have_many(:users).through(:user_mushrooms) }
     it { should have_one :characteristic }
     it { should have_one :taxonomy }
     it { should have_one :look_alike }
