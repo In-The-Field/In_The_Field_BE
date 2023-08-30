@@ -1,4 +1,2 @@
-class Mushroom < ApplicationRecord
-
 
 end
