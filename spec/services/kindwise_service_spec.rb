@@ -28,6 +28,12 @@ RSpec.describe KindwiseService do
       expect(mushroom_results[:result][:classification][:suggestions].first).to have_key(:details)
       expect(mushroom_results[:result][:classification][:suggestions].first[:details]).to have_key(:common_names)
       expect(mushroom_results[:result][:classification][:suggestions].first[:details][:common_names]).to be_an(Array)
+      expect(mushroom_results[:result][:classification][:suggestions].first[:details]).to have_key(:edibility)
+      expect(mushroom_results[:result][:classification][:suggestions].first[:details]).to have_key(:description)
+      expect(mushroom_results[:result][:classification][:suggestions].first[:details]).to have_key(:psychoactive)
+      expect(mushroom_results[:result][:classification][:suggestions].first[:details]).to have_key(:taxonomy)
+      expect(mushroom_results[:result][:classification][:suggestions].first[:details]).to have_key(:characteristic)
+      expect(mushroom_results[:result][:classification][:suggestions].first[:details]).to have_key(:look_alike)
     end
   end
 end
