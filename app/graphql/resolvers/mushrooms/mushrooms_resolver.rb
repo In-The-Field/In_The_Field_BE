@@ -12,24 +12,30 @@ module Resolvers
         mushrooms = mushrooms_data.map do |mushroom_data|
           Match.new(mushroom_data)
         end
+        all_mushrooms = []
         mushrooms.map do |mushroom|
-          # require 'pry'; binding.pry
-          new_mushroom = Mushroom.create!(
-            {
-              probability: mushroom.probability,
-              psychoactive: mushroom.psychoactive,
-              api_id: mushroom.api_id,
-              common_name: mushroom.common_name,
-              latin_name: mushroom.latin_name,
-              edibility: mushroom.edibility,
-              photo: mushroom.photo,
-              photo_citation: mushroom.photo_citation,
-              description: mushroom.description
-            }
-          )
-          # new_mushroom.update!(latin_name: "Bob")
+          mush = Mushroom.find_by(api_id: mushroom.api_id)
+          if !mush.nil?
+            all_mushrooms << mush
+          else
+            new_mushroom = Mushroom.create!(
+              {
+                probability: mushroom.probability,
+                psychoactive: mushroom.psychoactive,
+                api_id: mushroom.api_id,
+                common_name: mushroom.common_name,
+                latin_name: mushroom.latin_name,
+                edibility: mushroom.edibility,
+                photo: mushroom.photo,
+                photo_citation: mushroom.photo_citation,
+                description: mushroom.description
+              }
+            )
+            all_mushrooms << new_mushroom
+          end
         end
-        require 'pry'; binding.pry
+        all_mushrooms
+        # require 'pry'; binding.pry
       end
     end
   end
