@@ -15,7 +15,7 @@ module Types
     field :photo, String, null: true
     field :photo_citation, String, null: true
     field :description, String, null: true
-    
+
     field :taxonomyp, Types::TaxonomypType, null: true
     field :characteristicp, Types::CharacteristicpType, null: true
     field :look_alikep, [Types::LookAlikepType], null: true
