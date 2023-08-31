@@ -13,9 +13,10 @@ module Resolvers
           Match.new(mushroom_data)
         end
         all_mushrooms = []
-        mushrooms.map do |mushroom|
+        mushrooms.each do |mushroom|
           mush = Mushroom.find_by(api_id: mushroom.api_id)
           if !mush.nil?
+          
             all_mushrooms << mush
           else
             new_mushroom = Mushroom.create!(
@@ -31,11 +32,41 @@ module Resolvers
                 description: mushroom.description
               }
             )
+            new_mushroom.taxonomies.create!(
+              {
+                genus: mushroom.taxonomyp[:genus],
+                order: mushroom.taxonomyp[:order],
+                family: mushroom.taxonomyp[:family],
+                phylum: mushroom.taxonomyp[:phylum],
+                kingdom: mushroom.taxonomyp[:kingdom]
+              }
+              )
+              
+            new_mushroom.characteristics.create!(
+              {
+                hymenium_type: mushroom.characteristicp[:"hymenium type"],
+                stipe_character: mushroom.characteristicp[:"stipe character"],
+                spore_print_color: mushroom.characteristicp[:"spore print color"],
+                mushroom_cap_shape: mushroom.characteristicp[:"mushroom cap shape"],
+                hymenium_attachment: mushroom.characteristicp[:"hymenium attachment"],
+                mushroom_ecological_type: mushroom.characteristicp[:"mushroom ecological type"]
+              }
+              )
+
+
+            mushroom.look_alikep.map do |look_alike|
+              new_mushroom.look_alikes.create!(
+                {
+                  url: look_alike[:url],
+                  entity_id: look_alike[:entity_id],
+                  name: look_alike[:name]
+                }
+              )
+            end
             all_mushrooms << new_mushroom
           end
         end
         all_mushrooms
-        # require 'pry'; binding.pry
       end
     end
   end
