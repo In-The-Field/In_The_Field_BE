@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://mushroom.kindwise.com/api/v1/identification?details=common_names,description,edibility,image,taxonomy,psychoactive,characteristic,look_alike
+    body:
+      encoding: UTF-8
+      string: '{"images":["path_to_image"]}'
+    headers:
+      Api-Key:
+      - qHkL2vgTvvqxOcqgAOxGrsdNseWpvjo6YT5XkArSyquPxmjvs7
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.7.10
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - nginx/1.16.1
+      Date:
+      - Thu, 31 Aug 2023 02:46:46 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Length:
+      - '18'
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - DENY
+      Vary:
+      - origin
+      X-Content-Type-Options:
+      - nosniff
+      Referrer-Policy:
+      - same-origin
+      Cross-Origin-Opener-Policy:
+      - unsafe-none
+    body:
+      encoding: UTF-8
+      string: Invalid image data
+  recorded_at: Thu, 31 Aug 2023 02:46:46 GMT
+recorded_with: VCR 6.2.0
