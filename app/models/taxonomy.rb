@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Taxonomy < ApplicationRecord
   validates_presence_of :genus
   validates_presence_of :order

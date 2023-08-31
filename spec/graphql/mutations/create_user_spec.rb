@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Mutations::CreateUser, type: :request do
@@ -19,12 +21,12 @@ RSpec.describe Mutations::CreateUser, type: :request do
     it 'creates a user' do
       name = 'Test User'
       email = 'test@example.com'
-      
+
       post '/graphql', params: { query: mutation_string(name, email) }
-      
+
       json_response = JSON.parse(response.body)
       data = json_response['data']['createUser']
-      
+
       expect(data).to include(
         'user' => {
           'name' => name,

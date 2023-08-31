@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Match do
@@ -15,7 +17,7 @@ RSpec.describe Match do
           },
           description: {
             value: 'Description text'
-          },
+          }
           # taxonomy: 'Plantae'
           # characteristic: 'Characteristic text',
           # look_alike: 'Look-alike text'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Characteristic < ApplicationRecord
   # validates :hymenium_type, presence: true
   # validates :stipe_character, presence: true

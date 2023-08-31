@@ -1,4 +1,6 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 RSpec.describe Characteristic, type: :model do
   # describe "validations" do
@@ -10,7 +12,7 @@ RSpec.describe Characteristic, type: :model do
   #   it { should validate_presence_of :mushroom_ecological_type}
   # end
 
-  describe "relationships" do
+  describe 'relationships' do
     it { should belong_to :mushroom }
   end
 end

@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Resolvers::Users::UserResolver do
   describe '#resolve' do
     it 'fetches a user by ID' do
-      user = User.create!(name: "Billy D.", email: "billyd@email.com")
-  
+      user = User.create!(name: 'Billy D.', email: 'billyd@email.com')
+
       result = InTheFieldBeSchema.execute(
         <<~GRAPHQL
           query {
@@ -25,4 +27,3 @@ RSpec.describe Resolvers::Users::UserResolver do
     end
   end
 end
-

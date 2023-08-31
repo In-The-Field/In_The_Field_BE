@@ -3,7 +3,7 @@
 module Types
   class MushroomType < Types::BaseObject
     field :id, ID, null: false
-    
+
     field :probability, Float, null: true
 
     field :psychoactive, Boolean, null: true
@@ -17,7 +17,7 @@ module Types
     field :photo, String, null: true
     field :photo_citation, String, null: true
     field :description, String, null: true
-    
+
     field :taxonomies, [Types::TaxonomyType], null: true
     field :characteristics, [Types::CharacteristicType], null: true
     field :look_alikes, [Types::LookAlikeType], null: true
