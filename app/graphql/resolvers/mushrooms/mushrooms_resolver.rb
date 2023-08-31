@@ -13,7 +13,7 @@ module Resolvers
           Match.new(mushroom_data)
         end
         all_mushrooms = []
-        mushrooms.map do |mushroom|
+        mushrooms.each do |mushroom|
           mush = Mushroom.find_by(api_id: mushroom.api_id)
           if !mush.nil?
             all_mushrooms << mush
