@@ -15,9 +15,7 @@ class Match
 
   def initialize(data)
     @probability = data[:probability]
-
     @psychoactive = data[:details][:psychoactive]
-
     @api_id = data[:id] 
     @common_name = data[:details][:common_names].first
     @latin_name = data[:name]
@@ -25,7 +23,6 @@ class Match
     @photo = data[:details][:image][:value]
     @photo_citation = data[:details][:image][:citation]
     @description = data[:details][:description][:value]
-
     @taxonomyp = data[:details][:taxonomy]
     @characteristicp = data[:details][:characteristic].to_h.deep_dup
     @look_alikep = data[:details][:look_alike].to_a.deep_dup
