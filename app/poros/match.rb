@@ -17,7 +17,7 @@ class Match
     @probability = data[:probability]
     @psychoactive = data[:details][:psychoactive]
     @api_id = data[:id] 
-    @common_name = data[:details][:common_names].first
+    @common_name = data[:details][:common_names].to_a.deep_dup.join(", ")
     @latin_name = data[:name]
     @edibility = data[:details][:edibility]
     @photo = data[:details][:image][:value]
