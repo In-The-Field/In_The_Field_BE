@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe InTheFieldBeSchema do
   describe '.resolve_type' do
     it 'raises an error for abstract type resolution' do
-      expect {
+      expect do
         described_class.resolve_type(nil, nil, nil)
-      }.to raise_error(GraphQL::RequiredImplementationMissingError)
+      end.to raise_error(GraphQL::RequiredImplementationMissingError)
     end
   end
 
