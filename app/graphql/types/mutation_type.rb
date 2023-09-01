@@ -8,5 +8,6 @@ module Types
     # end
 
     field :create_user, mutation: Mutations::CreateUser
+    field :save_user_mushrooms, mutation: Mutations::SaveUserMushroom
   end
 end
