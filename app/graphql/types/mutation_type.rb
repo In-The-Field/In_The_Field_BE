@@ -10,5 +10,5 @@ module Types
     # end
 
     field :create_user, mutation: Mutations::CreateUser
-  end
+    field :save_user_mushrooms, mutation: Mutations::SaveUserMushroom  end
 end
