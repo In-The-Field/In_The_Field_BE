@@ -1,13 +1,15 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 RSpec.describe KindwiseService do
   describe '#call' do
     it 'returns a hash of mushroom data', :vcr do
       base_64_image
-      
+
       mushrooms = KindwiseService.new
       mushroom_results = mushrooms.get_mushroom_data(@image)
-    
+
       expect(mushroom_results).to be_a(Hash)
       expect(mushroom_results).to have_key(:access_token)
       expect(mushroom_results).to have_key(:input)

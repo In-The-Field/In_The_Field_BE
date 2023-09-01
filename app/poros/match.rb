@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Match
   attr_reader :api_id,
               :probability,
@@ -12,12 +14,11 @@ class Match
               :photo_citation,
               :look_alikep
 
-
   def initialize(data)
     @probability = data[:probability]
     @psychoactive = data[:details][:psychoactive]
-    @api_id = data[:id] 
-    @common_name = data[:details][:common_names].to_a.deep_dup.join(", ")
+    @api_id = data[:id]
+    @common_name = data[:details][:common_names].to_a.deep_dup.join(', ')
     @latin_name = data[:name]
     @edibility = data[:details][:edibility]
     @photo = data[:details][:image][:value]
@@ -26,5 +27,5 @@ class Match
     @taxonomyp = data[:details][:taxonomy]
     @characteristicp = data[:details][:characteristic].to_h.deep_dup
     @look_alikep = data[:details][:look_alike].to_a.deep_dup
-  end  
+  end
 end

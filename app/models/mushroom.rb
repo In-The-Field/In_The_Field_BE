@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Mushroom < ApplicationRecord
   validates :probability, presence: true
   validates :api_id, presence: true

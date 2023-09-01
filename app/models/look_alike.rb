@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LookAlike < ApplicationRecord
   validates :url, presence: true
   validates :entity_id, presence: true

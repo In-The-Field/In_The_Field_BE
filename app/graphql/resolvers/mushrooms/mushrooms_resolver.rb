@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module Resolvers
   module Mushrooms
     class MushroomsResolver < Resolvers::BaseResolver
       type [Types::MushroomType], null: false
 
       argument :image, String, required: true
-      
+
       def resolve(image:)
         service = KindwiseService.new
         data = service.get_mushroom_data(image)
@@ -16,7 +18,7 @@ module Resolvers
         mushrooms.each do |mushroom|
           mush = Mushroom.find_by(api_id: mushroom.api_id)
           if !mush.nil?
-          
+
             all_mushrooms << mush
           else
             new_mushroom = Mushroom.create!(
@@ -40,8 +42,8 @@ module Resolvers
                 phylum: mushroom.taxonomyp[:phylum],
                 kingdom: mushroom.taxonomyp[:kingdom]
               }
-              )
-              
+            )
+
             new_mushroom.characteristics.create!(
               {
                 hymenium_type: mushroom.characteristicp[:"hymenium type"],
@@ -51,8 +53,7 @@ module Resolvers
                 hymenium_attachment: mushroom.characteristicp[:"hymenium attachment"],
                 mushroom_ecological_type: mushroom.characteristicp[:"mushroom ecological type"]
               }
-              )
-
+            )
 
             mushroom.look_alikep.map do |look_alike|
               new_mushroom.look_alikes.create!(

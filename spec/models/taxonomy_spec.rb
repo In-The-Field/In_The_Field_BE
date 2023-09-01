@@ -1,7 +1,9 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 RSpec.describe Taxonomy, type: :model do
-  describe "validations" do
+  describe 'validations' do
     it { should validate_presence_of :genus }
     it { should validate_presence_of :order }
     it { should validate_presence_of :family }
@@ -9,7 +11,7 @@ RSpec.describe Taxonomy, type: :model do
     it { should validate_presence_of :kingdom }
   end
 
-  describe "relationships" do
+  describe 'relationships' do
     it { should belong_to :mushroom }
   end
 end
