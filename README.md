@@ -87,30 +87,108 @@ git push origin feature/AmazingFeature
 ```
 11. Open a Pull Request
 
-## Endpoints Used
+## Endpoints Queries and Mutations Used
+
+- Endpoint
 
 <div style="overflow: auto; height: 200px;">
   <pre>
     <code>
-      POST /api/v1/identification - List of probable matches
-      GET /api/v1/identification/:access_token - Detailed description of match
-      DELETE /api/v1/identification/:access_token - Remove favorite from field guide
+      POST /graphql
     </code>
   </pre>
 </div>
+<hr>
 
-- Response
+- ### Queries
+
+<div style="overflow: auto; height: 200px;">
+  <pre>
+    <code> 
+    
+{
+  mushrooms(image: "base_64_encoded_image") {
+    id
+    probability
+    psychoactive
+    apiId
+  commonName
+  latinName
+    edibility
+    photo
+    photoCitation
+    characteristics {
+        hymeniumType
+        stipeCharacter
+        sporePrintColor
+        mushroomCapShape
+        hymeniumAttachment
+        mushroomEcologicalType
+    }
+    lookAlikes {
+        name
+    }
+      taxonomies {
+        genus
+        order
+        family
+        phylum
+        kingdom
+        }
+    description
+  }
+}
+
+  </code>
+  </pre>
+</div>
+<hr>
+
+- ### Mutations
+
+<div style="overflow: auto; height: 200px;">
+  <pre>
+    <code>
+    
+  mutation{
+    saveUserMushrooms(input:{
+      userId: 13
+      mushroomId: 162
+    }) {
+        userMushroom{
+          id
+          isSaved
+        }
+      user{
+        id
+        name
+        email
+      }
+      mushroom {
+        id
+        commonName
+        latinName
+        apiId
+      }
+    }
+  }
+    </code>
+  </pre>
+</div>
+<hr>
+
+- ### Response
 
 <div style="overflow: auto; height: 200px;">
   <pre>
     <code>
 
 - List of Probable Matches 
-https://inthefieldonrender.com/api/v1/identification
 
 Success Response (200 OK)
 Status: 200 OK
 
+```json
 { "data": [
   {
     "id": "558fbb57c985b800",
@@ -120,9 +198,49 @@ Status: 200 OK
   ]
 }
 
+- Detail Description of a Mushroom
+
+Success Response (200 OK)
+Status: 200 OK
+{
+  "data": {
+    "matches": [
+      {
+        "probability": 0.5454445,
+        "psychoactive": false,
+        "apiID": "558fbb57c985b800",
+        "commoneName": "Cep",
+        "latinName": "Boletus edulis",
+        "edibility": "choice",
+        "photo": "https://www.kindwise.com/api/v1/mushrooms/558fbb57c985b800/photo",
+        "photoCitation": "https://www.kindwise.com/api/v1/mushrooms/558fbb57c985b800/photo/citation",
+        "characteristicp": {
+          "hymeniumType": "pores",
+          "stipeCharacter": "bare",
+          "sporePrintColor": "olive-brown",
+          "mushroomCapShape": "convex",
+          "hymeniumAttachment": "adnate",
+          "mushroomEcologicalType": "mycorrhizal"
+        },
+        "lookAlikep": [],
+        "taxonomyp": {
+          "genus": "Boletus",
+          "order": "Boletales",
+          "family": "Boletaceae",
+          "plylum": "Basidiomycota",
+          "kingdom": "Fungi"
+        },
+        "description": {
+          "value": "Boletus edulis blah blah blah blah"
+        }
+      }
+    ]
+  }
+} 
+```
 Error Response (400 Bad Request):
 Status: 400 Bad Request
-
+```json
 {
   "error":
   {
@@ -130,46 +248,36 @@ Status: 400 Bad Request
     "message": "Photo does not have high enough probability of being a mushroom"
   }
 }
- 
+ ```
 
-- Detailed Description (of single mushroom)
-https://inthefieldonrender.com/api/v1/identification/:access_token
+- Save Mushroom to User's Collection
 
 Success Response (200 OK)
-Status 200 OK
+Status: 200 OK
 
+```json
 {
-  "data": [
-    {
-      "id": "558fbb57c985b800",
-      "access_token": "VnR9gExfqegyJ27",
-      "name": "Boletus edulis",
-      "common_names": [
-        "Cep",
-        "King Bolete",
-        "Penny Bun",
-        "Porcini"
-      ],
-      "edibility": "choice",
-      "description": {
-        "value": "Boletus edulis blah blah blah blah"
+  "data": {
+    "saveUserMushrooms": {
+      "userMushroom": {
+        "id": "1",
+        "isSaved": true
+      },
+      "user": {
+        "id": "13",
+        "name": "Test_1",
+        "email": "test1@email.com"
+      },
+      "mushroom": {
+        "id": "162",
+        "commonName": "Cep, King Bolete, Penny Bun, Porcini",
+        "latinName": "Boletus edulis",
+        "apiId": "558fbb57c985b800"
       }
     }
-  ]
-}
-
-Error Response(400 Bad Request)
-Status 400 Bad Response
-
-{
-  "error":
-  {
-    "code": "BAD_REQUEST",
-    "message": "Access token is not valid"
   }
 }
-
-
+```
 
 - Delete Mushroom
 
@@ -198,18 +306,18 @@ Don't forget to give the project a star! Thanks again!
 [Kindwise](https://www.kindwise.com/mushroom-id)<br>
 
 
-## Authors
-#### BackEnd Team
-- Julian Beldotti [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ](https://github.com/JCBeldo) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) ]()
-- Sarah Garlock [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ](https://github.com/sarahgarlock) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) ](https://www.linkedin.com/in/sarah-garlock/)
-- Matthew William Johnson [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ]( https://github.com/MWMJohnson) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) ]()
-- Crow Rising [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ](https://github.com/CrowRising) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) ](https://www.linkedin.com/in/crowrising/)
-#### FrontEnd Team
-- Elise Jones [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ](https://github.com/Elise-Jones) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) ](https://www.linkedin.com/in/elise-jones-964bb5264/) 
-- Joshua Martin [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ](https://github.com/jmartin777) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) ](https://www.linkedin.com/in/joshua-c-martin/)
-- Andrea Sorenson [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ](https://github.com/andreasorensen) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) ](https://www.linkedin.com/in/andrea-sorensen-/)
+# Authors
+## BackEnd Team
+- ### Julian Beldotti [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ](https://github.com/JCBeldo) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) ]()
+- ### Sarah Garlock [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ](https://github.com/sarahgarlock) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) ](https://www.linkedin.com/in/sarah-garlock/)
+- ### Matthew William Johnson [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ]( https://github.com/MWMJohnson) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) ]()
+- ### Crow Rising [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ](https://github.com/CrowRising) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) ](https://www.linkedin.com/in/crowrising/)
+## FrontEnd Team
+- ### Elise Jones [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ](https://github.com/Elise-Jones) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) ](https://www.linkedin.com/in/elise-jones-964bb5264/) 
+- ### Joshua Martin [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ](https://github.com/jmartin777) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) ](https://www.linkedin.com/in/joshua-c-martin/)
+- ### Andrea Sorenson [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ](https://github.com/andreasorensen) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) ](https://www.linkedin.com/in/andrea-sorensen-/)
 
 
-## Planning Tools
+# Planning Tools
 - [![Miro Board](https://img.shields.io/badge/Miro-050038?style=for-the-badge&logo=Miro&logoColor=white)](https://miro.com/app/board/uXjVMsa-Jz0=/?moveToWidget=3458764562195436996&cot=14)
 - [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ](https://github.com/orgs/In-The-Field/projects/2)
