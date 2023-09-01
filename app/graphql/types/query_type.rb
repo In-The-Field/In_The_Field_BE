@@ -9,5 +9,6 @@ module Types
     field :user, resolver: Resolvers::Users::UserResolver
     field :matches, resolver: Resolvers::Matches::MatchesResolver
     field :mushrooms, resolver: Resolvers::Mushrooms::MushroomsResolver
+    field :mushroom, resolver: Resolvers::Mushrooms::MushroomResolver
   end
 end
