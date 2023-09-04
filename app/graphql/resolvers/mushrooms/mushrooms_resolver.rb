@@ -36,7 +36,6 @@ module Resolvers
                 description: mushroom.description
               }
             )
-            # require 'pry'; binding.pry
             new_mushroom.taxonomies.create!(
               {
                 genus: mushroom.taxonomyp[:genus],
