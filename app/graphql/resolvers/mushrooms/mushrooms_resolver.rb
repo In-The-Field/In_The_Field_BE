@@ -14,9 +14,11 @@ module Resolvers
         mushrooms = mushrooms_data.map do |mushroom_data|
           Match.new(mushroom_data)
         end
+      
         all_mushrooms = []
         mushrooms.each do |mushroom|
-          mush = Mushroom.find_by(api_id: mushroom.api_id)
+        
+          mush = Mushroom.find_by(latin_name: mushroom.latin_name)
           if !mush.nil?
 
             all_mushrooms << mush
@@ -34,6 +36,7 @@ module Resolvers
                 description: mushroom.description
               }
             )
+          
             new_mushroom.taxonomies.create!(
               {
                 genus: mushroom.taxonomyp[:genus],
