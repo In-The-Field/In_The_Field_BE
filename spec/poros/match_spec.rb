@@ -33,22 +33,22 @@ RSpec.describe Match do
       expect(match.photo).to eq('image_url')
       expect(match.photo_citation).to eq('Image Citation')
       expect(match.description).to eq('Description text')
-      # expect(match.taxonomyp).to eq({
-      #   genus: "nil",
-      #   order: "nil",
-      #   family: "nil",
-      #   phylum: "nil",
-      #   kingdom: "nil"
-      # })
-      # expect(match.characteristicp).to eq({
-      #   "hymenium type" => "nil",
-      #   "stipe character" => "nil",
-      #   "spore print color" => "nil",
-      #   "mushroom cap shape" => "nil",
-      #   "hymenium attachment" => "nil",
-      #   "mushroom ecological type" => "nil"
-      # })
-      # expect(match.look_alikep).to eq(['nil'])
+      expect(match.taxonomyp).to eq({
+        genus: "nil",
+        order: "nil",
+        family: "nil",
+        phylum: "nil",
+        kingdom: "nil"
+      })
+      expect(match.characteristicp).to eq({
+        "hymenium type" => "nil",
+        "stipe character" => "nil",
+        "spore print color" => "nil",
+        "mushroom cap shape" => "nil",
+        "hymenium attachment" => "nil",
+        "mushroom ecological type" => "nil"
+      })
+      expect(match.look_alikep).to eq(['nil'])
     end
   end
 end
