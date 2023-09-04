@@ -10,12 +10,11 @@ module Resolvers
       def resolve(id:)
         user = User.find_by(id:)
 
-        if user.nil?
-          # Return an error object with the error message
-          return GraphQL::ExecutionError.new("The user you entered does not exist in our database.")
-        else
-          user
-        end
+        return GraphQL::ExecutionError.new('The user you entered does not exist in our database.') if user.nil?
+
+        # Return an error object with the error message
+
+        user
       end
     end
   end
