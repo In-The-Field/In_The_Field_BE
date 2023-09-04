@@ -5,7 +5,7 @@ module Mutations
     argument :name, String, required: true
     argument :email, String, required: true
 
-    field :user, Types::UserType, null: false
+    field :user, Types::UserType, null: true
     field :errors, [String], null: false
 
     def resolve(name:, email:)

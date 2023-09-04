@@ -3,13 +3,21 @@
 module Resolvers
   module Mushrooms
     class MushroomResolver < Resolvers::BaseResolver
-      type Types::MushroomType, null: false
+      type Types::MushroomType, null: true
 
       argument :id, ID, required: true
 
       def resolve(id:)
-        Mushroom.find_by(id:)
+        mushroom = Mushroom.find_by(id: id)
+
+        if mushroom.nil?
+          # Return an error object with the error message
+          return GraphQL::ExecutionError.new("The mushroom you entered does not exist in our database.")
+        else
+          mushroom
+        end
       end
     end
   end
 end
+
