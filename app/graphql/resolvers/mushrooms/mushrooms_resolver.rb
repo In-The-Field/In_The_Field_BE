@@ -36,7 +36,6 @@ module Resolvers
                 description: mushroom.description
               }
             )
-          
             new_mushroom.taxonomies.create!(
               {
                 genus: mushroom.taxonomyp[:genus],
