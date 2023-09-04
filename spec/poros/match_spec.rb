@@ -5,11 +5,13 @@ RSpec.describe Match do
   describe '#initialize' do
     it 'initializes with correct attributes' do
       data = {
-        probability: 0.8,
+        probability: 0.37,
         details: {
-          psychoactive: true,
-          common_names: ['Common Name'],
-          edibility: 'Edible',
+          psychoactive: nil,
+          common_names: ["Frost's Amanita"],
+          taxonomy: { genus: "Amanita", order: "Agaricales", family: "Amanitaceae", phylum: "Basidiomycota", kingdom: "Fungi" },
+          edibility: nil,
+          look_alike: nil,
           image: {
             value: 'image_url',
             citation: 'Image Citation'
@@ -19,36 +21,29 @@ RSpec.describe Match do
           }
         },
         id: '12345',
-        name: 'Latin Name'
+        name: "Amanita frostiana"
       }
 
       match = Match.new(data)
 
-      expect(match.probability).to eq(0.8)
-      expect(match.psychoactive).to eq(true)
+      expect(match.probability).to eq(0.37)
+      expect(match.psychoactive).to eq(nil)
       expect(match.api_id).to eq('12345')
-      expect(match.common_name).to eq('Common Name')
-      expect(match.latin_name).to eq('Latin Name')
-      expect(match.edibility).to eq('Edible')
+      expect(match.common_name).to eq("Frost's Amanita")
+      expect(match.latin_name).to eq("Amanita frostiana")
+      expect(match.edibility).to eq(nil)
       expect(match.photo).to eq('image_url')
       expect(match.photo_citation).to eq('Image Citation')
       expect(match.description).to eq('Description text')
       expect(match.taxonomyp).to eq({
-        genus: "nil",
-        order: "nil",
-        family: "nil",
-        phylum: "nil",
-        kingdom: "nil"
+        genus: "Amanita",
+        order: "Agaricales",
+        family: "Amanitaceae",
+        phylum: "Basidiomycota",
+        kingdom: "Fungi"
       })
-      expect(match.characteristicp).to eq({
-        "hymenium type" => "nil",
-        "stipe character" => "nil",
-        "spore print color" => "nil",
-        "mushroom cap shape" => "nil",
-        "hymenium attachment" => "nil",
-        "mushroom ecological type" => "nil"
-      })
-      expect(match.look_alikep).to eq(['nil'])
+      expect(match.characteristicp).to eq({})
+      expect(match.look_alikep).to eq([])
     end
   end
 end
