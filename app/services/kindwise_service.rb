@@ -18,6 +18,17 @@ class KindwiseService
       req.body = payload.to_json
       req.params['details'] = 'common_names,description,edibility,image,taxonomy,psychoactive,characteristic,look_alike'
     end
-    JSON.parse(response.body, symbolize_names: true)
+
+    if response.body == "Invalid image data"
+      data = "Invalid image data"
+      # require 'pry'; binding.pry
+    elsif response.body == "The specified api key does not have sufficient number of available credits."
+      data = "1"
+    elsif response.body == "The specified api key not found."
+      data = "2"
+    else
+      JSON.parse(response.body, symbolize_names: true)
+    end
   end
 end
+
