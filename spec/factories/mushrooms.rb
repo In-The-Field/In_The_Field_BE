@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :mushroom do
     probability { Faker::Number.decimal(l_digits: 2) }
