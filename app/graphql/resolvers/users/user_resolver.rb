@@ -8,7 +8,14 @@ module Resolvers
       argument :id, ID, required: true
 
       def resolve(id:)
-        User.find_by(id:)
+        user = User.find_by(id:)
+
+        if user.nil?
+          # Return an error object with the error message
+          return GraphQL::ExecutionError.new("The user you entered does not exist in our database.")
+        else
+          user
+        end
       end
     end
   end
