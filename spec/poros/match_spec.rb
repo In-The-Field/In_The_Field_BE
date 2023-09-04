@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe Match do
@@ -18,9 +17,6 @@ RSpec.describe Match do
           description: {
             value: 'Description text'
           }
-          # taxonomy: 'Plantae'
-          # characteristic: 'Characteristic text',
-          # look_alike: 'Look-alike text'
         },
         id: '12345',
         name: 'Latin Name'
@@ -37,9 +33,22 @@ RSpec.describe Match do
       expect(match.photo).to eq('image_url')
       expect(match.photo_citation).to eq('Image Citation')
       expect(match.description).to eq('Description text')
-      # expect(match.taxonomyp).to eq('Plantae')
-      # expect(match.characteristicp).to eq('Characteristic text') # needs to be a Hash not a text
-      # expect(match.look_alikep).to eq('Look-alike text') # needs to be an Array not a text
+      expect(match.taxonomy).to eq({
+        genus: "nil",
+        order: "nil",
+        family: "nil",
+        phylum: "nil",
+        kingdom: "nil"
+      })
+      expect(match.characteristics).to eq({
+        "hymenium type" => "nil",
+        "stipe character" => "nil",
+        "spore print color" => "nil",
+        "mushroom cap shape" => "nil",
+        "hymenium attachment" => "nil",
+        "mushroom ecological type" => "nil"
+      })
+      expect(match.look_alikes).to eq(['nil'])
     end
   end
 end
