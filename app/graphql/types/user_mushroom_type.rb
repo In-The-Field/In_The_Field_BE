@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  class UserMushroomsType < Types::BaseObject
+  class UserMushroomType < Types::BaseObject
     field :id, ID, null: false
     field :user_id, UserType, null: true
     field :mushroom_id, MushroomType, null: true
