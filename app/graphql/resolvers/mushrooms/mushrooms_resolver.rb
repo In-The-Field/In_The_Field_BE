@@ -10,7 +10,7 @@ module Resolvers
       def resolve(image:)
         service = KindwiseService.new
         data = service.get_mushroom_data(image)
-        # require 'pry'; binding.pry
+       
         if data == "Invalid image data"
           return GraphQL::ExecutionError.new("Your submitted image was invalid")
         elsif data == "1"
