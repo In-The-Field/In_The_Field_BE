@@ -22,8 +22,8 @@ class Match
     @common_name = data[:details][:common_names].to_a.join(', ').empty? ? nil : data[:details][:common_names].to_a.join(', ')
     @latin_name = data[:name]
     @edibility = data[:details][:edibility] ||= nil
-    @photo = data[:details][:image][:value] ||= nil
-    @photo_citation = data[:details][:image][:citation] ||= nil
+    @photo = nil_photo(data[:details][:image])
+    @photo_citation = nil_photo_citation(data[:details][:image])
     @description = nil_description(data[:details])
     @taxonomyp = data[:details][:taxonomy] ||= nil_taxonomy
     @characteristicp = data[:details][:characteristic].to_h ||= nil_characteristic
@@ -47,6 +47,22 @@ class Match
       end
     else
       description_data[:description][:value] = "nil"
+    end
+  end
+
+  def nil_photo(data)
+    if data.nil?
+      data = nil
+    else
+      data[:value]
+    end
+  end
+
+  def nil_photo_citation(data)
+    if data.nil?
+      data = nil
+    else
+      data[:citation]
     end
   end
 

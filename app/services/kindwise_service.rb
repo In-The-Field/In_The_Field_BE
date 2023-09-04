@@ -21,7 +21,6 @@ class KindwiseService
 
     if response.body == "Invalid image data"
       data = "Invalid image data"
-      # require 'pry'; binding.pry
     elsif response.body == "The specified api key does not have sufficient number of available credits."
       data = "1"
     elsif response.body == "The specified api key not found."
