@@ -10,23 +10,23 @@ module Resolvers
       def resolve(image:)
         service = KindwiseService.new
         data = service.get_mushroom_data(image)
-        # require 'pry'; binding.pry
-        if data == "Invalid image data"
-          return GraphQL::ExecutionError.new("Your submitted image was invalid")
-        elsif data == "1"
-          return GraphQL::ExecutionError.new("The specified api key does not have sufficient number of available credits")
-        elsif data == "2"
-          return GraphQL::ExecutionError.new("The specified api key not found")
+
+        case data
+        when 'Invalid image data'
+          return GraphQL::ExecutionError.new('Your submitted image was invalid')
+        when '1'
+          return GraphQL::ExecutionError.new('The specified api key does not have sufficient number of available credits')
+        when '2'
+          return GraphQL::ExecutionError.new('The specified api key not found')
         end
 
         mushrooms_data = data[:result][:classification][:suggestions]
         mushrooms = mushrooms_data.map do |mushroom_data|
           Match.new(mushroom_data)
         end
-      
+
         all_mushrooms = []
         mushrooms.each do |mushroom|
-        
           mush = Mushroom.find_by(latin_name: mushroom.latin_name)
           if !mush.nil?
             mush.update!(probability: mushroom.probability)
