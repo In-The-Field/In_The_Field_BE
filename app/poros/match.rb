@@ -5,29 +5,29 @@ class Match
   attr_reader :api_id,
               :probability,
               :edibility,
-              :taxonomy,
+              :taxonomyp,
               :psychoactive,
-              :characteristics,
+              :characteristicp,
               :description,
               :common_name,
               :latin_name,
               :photo,
               :photo_citation,
-              :look_alikes
+              :look_alikep
 
   def initialize(data)
-    @probability = data[:probability] ||= "nil"
-    @psychoactive = data[:details][:psychoactive] ||= "nil"
-    @api_id = data[:id] ||= "nil"
-    @common_name = data[:details][:common_names].to_a.join(', ').empty? ? "nil" : data[:details][:common_names].to_a.join(', ')
-    @latin_name = data[:name] ||= "nil"
-    @edibility = data[:details][:edibility] ||= "nil"
-    @photo = data[:details][:image][:value] ||= "nil"
-    @photo_citation = data[:details][:image][:citation] ||= "nil"
+    @probability = data[:probability]
+    @psychoactive = data[:details][:psychoactive]
+    @api_id = data[:id]
+    @common_name = data[:details][:common_names].to_a.join(', ').empty? ? nil : data[:details][:common_names].to_a.join(', ')
+    @latin_name = data[:name]
+    @edibility = data[:details][:edibility] ||= nil
+    @photo = data[:details][:image][:value] ||= nil
+    @photo_citation = data[:details][:image][:citation] ||= nil
     @description = nil_description(data[:details])
-    @taxonomy = data[:details][:taxonomy] ||= nil_taxonomy
-    @characteristics = data[:details][:characteristic].to_h ||= nil_characteristic
-    @look_alikes = data[:details][:look_alike].to_a ||= ["nil"]
+    @taxonomyp = data[:details][:taxonomy] ||= nil_taxonomy
+    @characteristicp = data[:details][:characteristic].to_h ||= nil_characteristic
+    @look_alikep = data[:details][:look_alike].to_a ||= ["nil"]
   end
 
   def nil_description(description_data)
