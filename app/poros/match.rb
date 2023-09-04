@@ -26,8 +26,8 @@ class Match
     @photo_citation = data[:details][:image][:citation] ||= "nil"
     @description = nil_description(data[:details])
     @taxonomy = data[:details][:taxonomy] ||= nil_taxonomy
-    @characteristics = data[:details][:characteristic].to_h ||= nil_characteristic
-    @look_alikes = data[:details][:look_alike].to_a ||= ["nil"]
+    @characteristics = data[:details][:characteristic]&.to_h.presence || nil_characteristic
+    @look_alikes = data[:details][:look_alike].to_a.presence || ["nil"]
   end
 
   def nil_description(description_data)
