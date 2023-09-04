@@ -9,9 +9,7 @@ class User < ApplicationRecord
   has_many :mushrooms, through: :user_mushrooms
 
   def saved_mushrooms
-    x = self.user_mushrooms.where("is_saved = true")
-    x.map do |user_mushroom|
-      user_mushroom.mushroom
-    end
+    x = user_mushrooms.where('is_saved = true')
+    x.map(&:mushroom)
   end
 end
