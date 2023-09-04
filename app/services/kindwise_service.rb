@@ -22,7 +22,6 @@ class KindwiseService
     case response.body
     when 'Invalid image data'
       'Invalid image data'
-      # require 'pry'; binding.pry
     when 'The specified api key does not have sufficient number of available credits.'
       '1'
     when 'The specified api key not found.'

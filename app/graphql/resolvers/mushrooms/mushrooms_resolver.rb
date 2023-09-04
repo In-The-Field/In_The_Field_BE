@@ -10,12 +10,6 @@ module Resolvers
       def resolve(image:)
         service = KindwiseService.new
         data = service.get_mushroom_data(image)
-        if data == "Invalid image data"
-          return GraphQL::ExecutionError.new("Your submitted image was invalid")
-        elsif data == "1"
-          return GraphQL::ExecutionError.new("The specified api key does not have sufficient number of available credits")
-        elsif data == "2"
-          return GraphQL::ExecutionError.new("The specified api key not found")
 
         case data
         when 'Invalid image data'
