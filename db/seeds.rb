@@ -10,4 +10,4 @@
 
 User.destroy_all
 
-User.create(name: "Jerry Blank", email: "test_email")
+User.create(name: "Jerri Blank", email: "test_email")
