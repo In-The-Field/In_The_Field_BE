@@ -10,6 +10,4 @@
 
 User.destroy_all
 
-5.times do
-  User.create(name: Faker::Name.name, email: Faker::Internet.email)
-end
+User.create(name: "Jerry Blank", email: "test_email")
